@@ -1,0 +1,31 @@
+<div class="compareList">
+<h2>Compare List  </h2>
+    <app-compare-table  
+    *ngIf="dem.length > 0"
+    [compareList]="dem" ></app-compare-table>
+    <h6 *ngIf="dem.length == 0" >No Compare list</h6>
+</div>
+
+<div class="row" style="margin: 0;">
+    <div class="col-sm-2" *ngFor="let b of photoList">
+        <div class="">
+            <div class="p_img">
+                <img [src]="b.url" alt="b.title" >
+            </div>
+            <div class="title">
+                {{b.title}}
+            </div>
+            <div>
+                <div class="btn btn-primary" *ngIf="b.isCompare == false">
+                    <span (click)="b.isCompare = true ;compare(b)">Compare</span>                    
+                </div>
+                <div class="btn btn-danger" *ngIf="b.isCompare == true">
+                    <span (click)="b.isCompare = false ;remove(b)">Remove</span>                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
